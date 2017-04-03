@@ -1,2 +1,2 @@
 # AtelierDom
-Atelier Dom
+Atelier Dom_ Javascript
