@@ -11,27 +11,24 @@ document.getElementById("less").addEventListener("click", _diminuer);
 
 /*Ajouter une ligne________________*/
 function f_add(e) {
-
+    //Ajout d'une ligne (tr) 
     var nodeTr = document.createElement("tr");
-    //////////////////////////////////////
-    var nodeTd = document.createElement("td");
+
+    //Ajout des cellules de la ligne 
+    var nodeTd = document.createElement("td"); //cellule1 1
     var textnode = document.createTextNode("cellule1")
     nodeTd.appendChild(textnode);
 
-    var nodeTd1 = document.createElement("td");
+    var nodeTd1 = document.createElement("td"); //cellule2 
     var textnode1 = document.createTextNode("cellule2")
     nodeTd1.appendChild(textnode1);
 
-    // var nodeTd2 = document.createElement("td");
-    // var textnode2 = document.createTextNode("cellule3")
-    // nodeTd.appendChild(textnode2);
 
+    //ratacher les noeuds td à tr
     nodeTr.appendChild(nodeTd)
     nodeTr.appendChild(nodeTd1)
-    //nodeTr.appendChild(nodeTd2)
 
-
-
+    //ratacher le noeud tr à la table idTable 
     document.getElementById("idTable").appendChild(nodeTr);
 
 }
@@ -39,8 +36,9 @@ function f_add(e) {
 /*Supprimer la derniere ligne de la table ___________________ */
 function f_del() {
     if (tableau.rows.length) {
-        tableau.deleteRow(tableau.rows.length - 1);
+        tableau.removeChild(tableau.lastChild);
     }
+
 }
 
 /* Augmenter la taille de la police de la table */
