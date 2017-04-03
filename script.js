@@ -1,31 +1,41 @@
 
 
 var tableau = document.getElementById("idTable");
+
+// relier les évenement à des fonctions 
 document.getElementById("add").addEventListener("click", f_add);
 document.getElementById("del").addEventListener("click", f_del);
 document.getElementById("more").addEventListener("click", _augmenter);
 document.getElementById("less").addEventListener("click", _diminuer);
+
+
+/*Ajouter une ligne________________*/
 function f_add(e) {
 
+    var nodeTr = document.createElement("tr");
+    //////////////////////////////////////
+    var nodeTd = document.createElement("td");
+    var textnode = document.createTextNode("cellule1")
+    nodeTd.appendChild(textnode);
+
+    var nodeTd1 = document.createElement("td");
+    var textnode1 = document.createTextNode("cellule2")
+    nodeTd1.appendChild(textnode1);
+
+    // var nodeTd2 = document.createElement("td");
+    // var textnode2 = document.createTextNode("cellule3")
+    // nodeTd.appendChild(textnode2);
+
+    nodeTr.appendChild(nodeTd)
+    nodeTr.appendChild(nodeTd1)
+    //nodeTr.appendChild(nodeTd2)
 
 
-    var cell, ligne;
 
-    // on récupère l'identifiant (id) de la table qui sera modifiée
+    document.getElementById("idTable").appendChild(nodeTr);
 
-
-    ligne = tableau.insertRow(-1); // création d'une ligne pour ajout en fin de table
-    // le paramètre est dans ce cas (-1)
-
-    // création et insertion des cellules dans la nouvelle ligne créée
-    cell = ligne.insertCell(0);
-    cell.innerHTML = "Cellule";
-
-    cell = ligne.insertCell(1);
-    cell.innerHTML = "Cellule";
-    cell = ligne.insertCell(2);
-    cell.innerHTML = "Cellule";
 }
+
 /*Supprimer la derniere ligne de la table ___________________ */
 function f_del() {
     if (tableau.rows.length) {
